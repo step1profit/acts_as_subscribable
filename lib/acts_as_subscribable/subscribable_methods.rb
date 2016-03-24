@@ -9,7 +9,7 @@ module ActsAsSubscribable
       options[:subscriber] = options[:subscriber].to_s
       
       subscriber_const = options[:subscriber].constantize
-      subscriber_table = options[:subscriber].tableize
+      subscriber_table = options[:subscriber].tableize.to_sym
       subscription_const = options[:subscription].constantize
       
       has_many :subscriptions, :class_name => options[:subscription], :dependent => :destroy
